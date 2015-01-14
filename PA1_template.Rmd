@@ -4,19 +4,36 @@ output:
   html_document:
     keep_md: true
 ---
+```{r}
+## load the necessary libraries
+library(plyr)
+library(ggplot2)
+## Load and preprocessing the data - assumes that the data are 
+## uncompressed and in the current active folder
+setwd("~/GitHub/RepData_PeerAssessment1")
+data = read.table("activity.csv", header=TRUE, sep=",")
+## convert the variable 'interval' from an integer to a factor
+data$interval = as.factor(data$interval)
+```
 
-
-## Loading and preprocessing the data
-
-
-
+```{r}
 ## What is mean total number of steps taken per day?
+# get the sum of steps for each day
+steps_each_day = ddply(data, ~date, summarize, Total = sum(steps))
+hist(steps_each_day$Total, breaks=40, main="Total Steps Per Day", xlab = "Steps Per Day", ylab = "Count")
+```
 
+Mean number of steps per day is `r sprintf("%.2f", mean(steps_each_day$Total, na.rm=TRUE))`
 
+Median number of steps per day is `r median(steps_each_day$Total, na.rm=TRUE)`
 
+```{r}
 ## What is the average daily activity pattern?
-
-
+act_pattern = ddply(data, ~interval, summarise, meansteps = mean(steps, na.rm = TRUE))
+ggplot(data=act_pattern, aes(x = as.integer(interval), y = meansteps)) + 
+    geom_line() +
+    labs(title = "Average Daily Activity", x = "5-minute Interval", y = "Average number of steps")
+```
 
 ## Imputing missing values
 
