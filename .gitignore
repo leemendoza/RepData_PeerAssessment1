@@ -1,10 +1,7 @@
 ## knitr byproduct files
 *.css
 *.ttf
-*.png
 *.js
-*.md
-*.html
 
 #################
 ## Eclipse
