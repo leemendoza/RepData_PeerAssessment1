@@ -61,7 +61,7 @@ act_pattern$minutes = tminutes(as.character(act_pattern$interval))
 ## average number of steps taken, averaged across all days
 ggplot(data=act_pattern, aes(x = minutes, y = meansteps)) + 
     geom_line() +
-    labs(title = "Average Daily Activity", x = "Minutes since midnight", y = "Average number of steps")
+    labs(title = "Average Daily Activity", x = "5 Minute Interval", y = "Average number of steps")
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
@@ -173,7 +173,7 @@ names(mdiffsteps) = c("minutes", "daytype", "steps")
 ggplot(mdiffsteps, aes(x=minutes, y = steps)) +
     geom_line() +
     facet_grid(daytype ~ .) + 
-    labs(title = "Average Daily Activity", x = "Minutes since midnight", y = "Average number of steps")
+    labs(title = "Average Daily Activity", x = "5 Minute Interval", y = "Average number of steps")
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
