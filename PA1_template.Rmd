@@ -60,7 +60,7 @@ act_pattern$minutes = tminutes(as.character(act_pattern$interval))
 ## average number of steps taken, averaged across all days
 ggplot(data=act_pattern, aes(x = minutes, y = meansteps)) + 
     geom_line() +
-    labs(title = "Average Daily Activity", x = "Minutes since midnight", y = "Average number of steps")
+    labs(title = "Average Daily Activity", x = "5 Minute Interval", y = "Average number of steps")
 ```
 
 
@@ -163,7 +163,7 @@ names(mdiffsteps) = c("minutes", "daytype", "steps")
 ggplot(mdiffsteps, aes(x=minutes, y = steps)) +
     geom_line() +
     facet_grid(daytype ~ .) + 
-    labs(title = "Average Daily Activity", x = "Minutes since midnight", y = "Average number of steps")
+    labs(title = "Average Daily Activity", x = "5 Minute Interval", y = "Average number of steps")
 ```
 
 #####There are minor differences in the pattern between weekends and weekdays. Step activity begins earlier on weekdays than on weekends, peak activity is greater on weekdays compared to weekends, however, step activity is more equally distributed throughout the day on weekends compared to weekdays, 
