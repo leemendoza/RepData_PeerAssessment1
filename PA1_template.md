@@ -1,3 +1,6 @@
+---
+output: html_document
+---
 # Reproducible Research: Peer Assessment 1
 Lee Mendoza
 
